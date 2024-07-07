@@ -3,15 +3,41 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Script 1</title>
+    <title>Script 1 - YT Downloader</title>
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
     <header>
-        <h1>Script 1 GUI</h1>
+        <h1>YT Downloader GUI</h1>
     </header>
     <main>
-        <!-- Insert the GUI code for Script 1 here -->
+        <div id="yt-downloader">
+            <label for="url-input">Enter YouTube URL:</label>
+            <input type="text" id="url-input" placeholder="YouTube URL">
+            <button id="submit-url">Submit</button>
+        </div>
+        <div id="format-options" style="display:none;">
+            <p>Choose format:</p>
+            <button id="video-format">Video</button>
+            <button id="audio-format">Audio</button>
+        </div>
+        <div id="available-formats" style="display:none;">
+            <p>Available Formats:</p>
+            <select id="format-select"></select>
+            <button id="select-format">Select</button>
+        </div>
+        <div id="confirmation" style="display:none;">
+            <p>Confirm your selections:</p>
+            <label for="output-destination">Output Destination:</label>
+            <input type="text" id="output-destination" value="D:\\yt-gui\\exports">
+            <label for="output-filename">Output File Name:</label>
+            <input type="text" id="output-filename" placeholder="File Name">
+            <button id="start-download">Start Download</button>
+        </div>
+        <div id="progress" style="display:none;">
+            <p id="progress-text">Downloading...</p>
+            <progress id="progress-bar" max="100" value="0"></progress>
+        </div>
     </main>
     <footer>
         <button onclick="navigateTo('index.html')">Back to Home</button>
