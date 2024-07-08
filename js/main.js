@@ -53,7 +53,6 @@ document.addEventListener('DOMContentLoaded', () => {
         formatOptions.style.display = 'none';
         availableFormats.style.display = 'block';
 
-        // Simulate fetching formats
         const formats = type === 'video'
             ? [{ id: '22', name: '720p' }, { id: '137', name: '1080p' }, { id: '313', name: '4K' }]
             : [{ id: '140', name: '128kbps' }, { id: '256', name: '256kbps' }, { id: '320', name: '320kbps' }];
@@ -71,9 +70,11 @@ document.addEventListener('DOMContentLoaded', () => {
         progressSection.style.display = 'block';
         progressText.textContent = 'Downloading...';
 
-        fetch('http://47.6.206.226:5000/download', {
+        fetch('http://47.6.206.226:8080/download', {
             method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
+            headers: {
+                'Content-Type': 'application/json'
+            },
             body: JSON.stringify({ url, format_id: formatId })
         })
         .then(response => {
@@ -87,7 +88,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const url = window.URL.createObjectURL(blob);
             const a = document.createElement('a');
             a.href = url;
-            a.download = 'downloaded_file';
+            a.download = "downloaded_file";
             document.body.appendChild(a);
             a.click();
             a.remove();
@@ -98,4 +99,4 @@ document.addEventListener('DOMContentLoaded', () => {
             progressText.textContent = 'Download failed!';
         });
     }
-});                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        });
+});
